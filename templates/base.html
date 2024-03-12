@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Algorithmic Trading{% endblock %}</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <header>
+    <h1>Algorithmic News Analysis and Trading</h1>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('analysis') }}">Analysis</a></li>
+        <li><a href="{{ url_for('trading') }}">Trading</a></li>
+        <li><a class="contact-button" href="https://singhsneha.framer.website/" target="_blank">Contact Me!</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}
+    <!-- Main content of the page -->
+    {% endblock %}
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="left-content">
+        <p>I welcome opportunities to collaborate with others in the dynamic intersection of technology and finance. As
+          I document my own journey of learning and growth, follow my progress and let's connect if you see a potential
+          way we can help empower one another's goals or enact positive change together. I believe progress accelerates
+          when we share knowledge across diverse perspectives.</p>
+        <a class="meet-button" href="https://calendly.com/singhsneha99/30-min-one-on-one-call" target="_blank">Let's
+          Meet Virtually</a>
+      </div>
+      <div class="right-content">
+        <div class="footer-links">
+          <a href="https://www.linkedin.com/in/singhsneha99/" target="_blank">LinkedIn</a>
+          <a href="https://github.com/singhsneha99" target="_blank">GitHub</a>
+          <a href="https://medium.com/@sneha.ahens12" target="_blank">Medium</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+</body>
+
+</html>

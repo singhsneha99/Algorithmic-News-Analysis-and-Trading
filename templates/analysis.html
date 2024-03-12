@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Content specific to the analysis page -->
+<h1>Financial News Analysis</h1>
+
+<h2>Yahoo Finance News</h2>
+<ul class="article-list">
+  {% for article in yahoo_news %}
+  <li class="article">
+    <a href="{{ article.url }}">{{ article.title }}</a>
+    <div class="mentions-container">
+      {% set companies = {} %}
+      {% for company, category in article.company_mentions %}
+      {% if category not in ['DATE', 'CARDINAL'] %}
+      {% set _ = companies.setdefault(category, []) %}
+      {% set _ = companies[category].append(company|replace('[0-9]|(\d{1,2}\/\d{1,2}\/\d{2,4})', '')|trim) %}
+      {% endif %}
+      {% endfor %}
+      {% if companies %}
+      <table class="mentions-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Values</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for category, companies_in_category in companies.items() %}
+          {% set unique_companies = companies_in_category|unique %}
+          {% if unique_companies %}
+          <tr>
+            <td>{{ category }}</td>
+            <td>
+              {% for company in unique_companies %}
+              <span class="tag">{{ company }}</span>
+              {% endfor %}
+            </td>
+          </tr>
+          {% endif %}
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+    </div>
+    <p class="sentiment">Sentiment Score: {{ article.sentiment_score }}</p>
+    <p><strong>DECISION:</strong>
+      {% if article.sentiment_score > 0.15 %}
+      <span class="decision buy">Buy</span>
+      {% elif article.sentiment_score < 0 %} <span class="decision sell">Sell</span>
+        {% else %}
+        <span class="decision hold">Hold</span>
+        {% endif %}
+    </p>
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
