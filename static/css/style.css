@@ -1,0 +1,141 @@
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #000;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+/* Update navigation styles */
+nav {
+  background-color: #111;
+  padding: 20px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  text-align: right;
+  /* Align menu items to the right */
+  margin: 0;
+  /* Remove default margin */
+}
+
+nav ul li {
+  display: inline-block;
+  margin-left: 20px;
+  transition: transform 0.3s ease;
+}
+
+nav ul li:hover {
+  transform: translateY(-5px);
+  /* Move the item up */
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
+nav ul li a:hover {
+  color: #999;
+  /* Change text color on hover */
+}
+
+.contact-button,
+.meet-button {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.contact-button:hover,
+.meet-button:hover {
+  background-color: #eee;
+  /* Lighten background on hover */
+}
+
+
+main {
+  padding: 20px;
+}
+
+footer {
+  background-color: #333;
+  padding: 20px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-content {
+  width: 100%;
+  display: flex;
+}
+
+.left-content {
+  width: 66.66%;
+}
+
+.right-content {
+  width: 33.33%;
+  text-align: right;
+}
+
+.footer-links {
+  margin-top: 20px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* CSS for the tag bubbles */
+.tag {
+  display: inline-block;
+  background-color: #f0f0f0;
+  /* Light grey background */
+  color: #000;
+  /* Black text */
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 15px;
+}
+
+/* CSS for the decision labels */
+.decision {
+  font-weight: bold;
+  font-size: 20px;
+  /* Larger font size */
+  margin-top: 10px;
+}
+
+.buy {
+  color: green;
+}
+
+.sell {
+  color: red;
+}
+
+.hold {
+  color: yellow;
+}
